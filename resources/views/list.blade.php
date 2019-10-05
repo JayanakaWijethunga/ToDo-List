@@ -19,11 +19,11 @@
                             </div>
                             <div class="panel-body">
                                     <ul class="list-group">
-                                            <li class="list-group-item">Cras justo odio</li>
-                                            <li class="list-group-item">Dapibus ac facilisis in</li>
-                                            <li class="list-group-item">Morbi leo risus</li>
-                                            <li class="list-group-item">Porta ac consectetur ac</li>
-                                            <li class="list-group-item">Vestibulum at eros</li>
+                                            <li class="list-group-item ourItem" data-toggle="modal" data-target="#myModal">Cras justo odio</li>
+                                            <li class="list-group-item ourItem" data-toggle="modal" data-target="#myModal">Dapibus ac facilisis in</li>
+                                            <li class="list-group-item ourItem" data-toggle="modal" data-target="#myModal">Morbi leo risus</li>
+                                            <li class="list-group-item ourItem" data-toggle="modal" data-target="#myModal">Porta ac consectetur ac</li>
+                                            <li class="list-group-item ourItem" data-toggle="modal" data-target="#myModal">Vestibulum at eros</li>
                                           </ul>
                             </div>
                           </div>
@@ -38,14 +38,15 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title">Modal title</h4>
+                  <h4 class="modal-title" id="title">Add New Item</h4>
                 </div>
                 <div class="modal-body">
-                  <p>One fine body&hellip;</p>
+                  <p><input type="text" name="" id="addItem" class="form-control" placeholder="Type new item here"></p>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal" style="display:none" id="delete">Delete</button>
+                  <button type="button" class="btn btn-primary" style="display:none" id="saveChange">Save changes</button>
+                  <button type="button" class="btn btn-primary" id="addnew">Add Item</button>
                 </div>
               </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
@@ -53,5 +54,22 @@
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+<script>
+$(document).ready(function(){
+    $('.ourItem').each(function(){
+
+        $(this).click(function(event){
+            var contents = $(this).text();
+            $('#addItem').val(contents);
+            $('#title').text('Edit Item');
+            $('#delete').show(400);
+            $('#saveChange').show(400);
+            $('#addnew').hide(400);
+            console.log(contents);
+
+        })
+    })
+})
+</script>
 </body>
 </html>
